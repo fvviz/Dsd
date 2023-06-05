@@ -1,0 +1,55 @@
+verliog codd 
+half adder
+
+data flow modelling
+module halfadder(s,c,a,b):
+input a,b;
+output s,c;
+assign s= a^b;
+assign c = (a&b) ;
+endmodule
+
+structural modelling
+module halfadder(s,c,a,b):
+input a,b;
+output s,c;
+xor (s,a,b);
+and (c,a,b);
+endmodule
+
+
+Full adder
+data flow
+module fulladder(s,c,a,b,cin):
+input a,b,cin;
+output s,c;
+assign s= a^b^cin;
+assign c = (a&b) | (b&cin) | (cin&a) ;
+endmodule
+
+structual modelling
+module fulladder(s,c,a,b,cin):
+input a,b,cin;
+output s,c;
+wire w1,w2,w3;
+XOR G1(w,a,b);
+XOR G2(sum,w1,cin);
+and G3(w2,a,b);
+and G4(w4,a,cin);
+or G6(c,w2,w3,w4);
+endmodule
+
+Behavorial Modelling
+module fulladder(s,c,a,b,cin):
+input a,b,cin;
+output s,c;
+reg s,c
+always @ (a rb ar cin)
+begin
+s=a^b^cin
+c= (a&b)|(b&cin)|(cina)
+end
+end module
+
+
+
