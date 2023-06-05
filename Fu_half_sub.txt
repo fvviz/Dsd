@@ -1,0 +1,26 @@
+half sub data flow
+
+module halfsubtractor(diff, borrow, a,b);
+input a,b;
+output diff, borrow;
+assign diff=a^b;
+assign borrow=!a&b;
+endmodule
+
+structured modelling 
+module halfsubtractor(diff, borrow, a,b);
+input a,b;
+output diff, borrow;
+XOR (diff,borrow);
+and (borrow,a,b)
+endmodule
+
+
+full subtractor
+data flow
+module fullsubtractor (diff, borrow, a,b, c);
+input a,b,c;
+output diff,borrow
+assign diff =a^b^c;
+assign borrow= (!a&b) | (b&c) | (c&!a)
+endmodile
